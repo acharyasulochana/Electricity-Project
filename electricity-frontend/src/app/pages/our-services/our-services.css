@@ -1,0 +1,42 @@
+.service-container{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 2px solid #df8f19;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.our-services-header{
+  background-color: #df8f19;
+  padding: 0.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.icon-btn {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+  border: none !important;
+  box-shadow: none;
+  outline: none;
+  font-size: 14px;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem 0.5rem 0.7rem;
+}
+
+/* Hover effect */
+.icon-btn:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.icon-btn-service {
+  background-color: #df8f19;
+}

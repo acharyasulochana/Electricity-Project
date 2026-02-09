@@ -1,0 +1,31 @@
+.home-container {
+  display:flex;
+  margin: 0.6rem 0rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  gap:2.5rem;
+  min-height: 25rem;
+  /*min-height: 100vh;  full screen height */
+  background-image: url('/assets/images/manaslu.jpg');
+  background-size: cover;       /* fill container */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;
+}
+
+
+.home-left{
+  padding-left: 4rem;
+  gap:2.5rem;
+  margin: 1.5rem 0rem 1.5rem 0rem;
+}
+
+.home-center{
+  min-width: 35rem;
+  margin: 4rem 0rem 1.5rem 0rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.electricity-container{
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+}

@@ -1,0 +1,76 @@
+.electricity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0rem 0 0.5rem 0rem;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* Each icon button */
+.icon-btn {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+  border: none !important;
+  box-shadow: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 14px;
+  background-color: #192a5e;
+  padding: 0 1rem 0 0.7rem;
+}
+
+/* Hover effect */
+.icon-btn:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+/* Optional: active state */
+.icon-btn.active {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .icon-btn {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .electricity {
+    padding: 0.5rem 1rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 3rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .icon-btn {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .electricity {
+    padding: 0.5rem 1rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 3rem;
+  }
+}
