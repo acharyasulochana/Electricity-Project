@@ -1,0 +1,14 @@
+.container-footer{
+  padding:  0.5rem 1rem;
+  gap: 2rem;
+  background-color: #575050;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}

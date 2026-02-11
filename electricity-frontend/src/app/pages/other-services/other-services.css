@@ -1,0 +1,63 @@
+.main-container-service{
+  padding: 0 1rem 0 1rem;
+  background-color: #ffffff;
+  font-size: 16px;
+  display: block;
+}
+
+.other-service-header{
+  display: inline-block;
+  padding: 0.3rem 0.5rem  ;
+  background-color: #192a5e;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.container-all-services{
+  display:flex;
+  gap: 2rem;
+  align-items: stretch;
+  padding: 0.55rem 2rem;
+  border-radius: 4px;
+  border: 1px solid #fc770aee;
+}
+
+.container-services-left, .container-services-right{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0rem 0 0.5rem 0rem;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+
+.icon-btn {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: inherit;
+  font-weight: 510;
+  border: none !important;
+  box-shadow: none;
+  outline: none;
+  color: #ffffff;
+  background-color: #fc770aee;
+  padding: 0.2rem 1rem 0.2rem 0.7rem;
+  border-radius: 4px;
+}
+
+/* Hover effect */
+.icon-btn:hover {
+  background-color: #e68830ef;
+  color: #000;
+}
+
+/* Optional: active state */
+.icon-btn.active {
+  color: white;
+}

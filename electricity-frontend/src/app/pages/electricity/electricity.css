@@ -4,7 +4,7 @@
   gap: 0.5rem;
   padding: 0rem 0 0.5rem 0rem;
   box-sizing: border-box;
-  border: 1px solid #000;
+  border: 1px solid #192a5e;
   background-color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
 }
@@ -22,14 +22,13 @@
   box-shadow: none;
   outline: none;
   color: #ffffff;
-  font-size: 14px;
   background-color: #192a5e;
   padding: 0 1rem 0 0.7rem;
 }
 
 /* Hover effect */
 .icon-btn:hover {
-  background-color: #e0e0e0;
+  background-color: #1976d2;
   color: #000;
 }
 

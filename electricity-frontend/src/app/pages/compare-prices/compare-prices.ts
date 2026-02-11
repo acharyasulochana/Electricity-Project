@@ -6,12 +6,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 
+
+
 @Component({
-  selector: 'app-footer',
+  selector: 'app-compare-prices',
   imports: [MatButtonModule, MatIconModule, MatToolbarModule, MatFormFieldModule, MatInputModule, CommonModule],
-  templateUrl: './footer.html',
-  styleUrl: './footer.css',
+  templateUrl: './compare-prices.html',
+  styleUrl: './compare-prices.css',
 })
-export class Footer {
+export class ComparePrices {
 
 }

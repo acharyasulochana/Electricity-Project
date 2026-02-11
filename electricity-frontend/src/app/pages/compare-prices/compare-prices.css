@@ -1,0 +1,145 @@
+.compare-price{
+  padding-bottom: 0.5rem;
+}
+
+.container-address {
+  gap: 0.5rem;
+}
+
+.feature-header {
+  padding: 0.3rem 0.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: green ;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* small | large */
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.box {
+  padding: 0.3rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #a1a0a0;
+  color: #a1a0a0;
+}
+
+.container-personal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compare-person{
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.person-option{
+  display: inline-flex;
+  gap: 2.4rem;
+  align-items: center;
+  padding: 0rem 4.5rem;
+}
+
+.person{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.person-icon {
+  font-size: 2.5rem;
+  color: #192a5e;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* count badge */
+.person-count {
+  padding: 0.3rem 1.5rem;
+  background-color: #192a5e;
+  color: #ffffff;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+/* hover ONLY affects icon + count */
+.person:hover .person-icon {
+  color: rgba(25, 118, 210, 0.15);
+  color: #1976d2;
+}
+
+.person:hover .person-count {
+  background-color: #1976d2;
+}
+
+
+.total-consumption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.consumption-number{
+  flex: 1;
+  border: none;
+  font-size: 14px;
+  border-radius: 6px;
+  outline: none;
+  padding: 0.3rem 2.7rem;
+}
+
+
+.compare{
+  border: none;
+  font: inherit;
+  font-weight: 500;
+  outline: none;
+  color: #ffffff;
+  background-color: #192a5e;
+  transition: background-color 0.2s ease;
+  padding: 0.2rem 7rem;
+  cursor: pointer;
+}
+
+.compare:hover{
+  background-color: #1976d2;
+}
+
+.container-wish{
+  font-size: 16px;
+  color: #414040;
+  align-items: center;
+}
+
+.center-text {
+  display: block;      /* makes it act like a line */
+  text-align: center;  /* centers only this line */
+}
+
+.callback{
+  border: none;
+  font: inherit;
+  font-weight: 500;
+  outline: none;
+  color: #ffffff;
+  background-color: #fc770aee;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.callback:hover {
+  background-color: #e68830ef;
+}

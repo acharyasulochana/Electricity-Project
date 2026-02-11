@@ -7,11 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-other-services',
   imports: [MatButtonModule, MatIconModule, MatToolbarModule, MatFormFieldModule, MatInputModule, CommonModule],
-  templateUrl: './footer.html',
-  styleUrl: './footer.css',
+  templateUrl: './other-services.html',
+  styleUrl: './other-services.css',
 })
-export class Footer {
+export class OtherServices {
 
 }

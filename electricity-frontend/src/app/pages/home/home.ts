@@ -7,11 +7,15 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { Electricity } from "../electricity/electricity";
 import { OurServices } from "../our-services/our-services";
+import { ComparePrices } from "../compare-prices/compare-prices";
+import { Discount } from '../discount/discount';
+import { AboutUs } from '../about-us/about-us';
+import { OtherServices } from '../other-services/other-services';
 
 
 @Component({
   selector: 'app-home',
-  imports: [MatButtonModule, MatIconModule, MatToolbarModule, MatFormFieldModule, MatInputModule, CommonModule, Electricity, OurServices],
+  imports: [MatButtonModule, MatIconModule, MatToolbarModule, MatFormFieldModule, MatInputModule, CommonModule, Electricity, OurServices, ComparePrices, Discount, AboutUs, OtherServices],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
