@@ -1,24 +1,54 @@
-.compare-price{
-  padding-bottom: 0.5rem;
-}
-
 .container-address {
   gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding-bottom: 0.6rem;
+  border: 2px solid #00a651;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.container-callback {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.75);
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 2px solid #ff6b00;
+  padding: 0.6rem;
 }
 
 .feature-header {
-  padding: 0.3rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.32rem 0.5rem;
   font-size: 16px;
   font-weight: 500;
   color: #ffffff;
-  background-color: green ;
+  background-color: #00a651;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.feature-header1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.35rem 0.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #00a651;
+
 }
 
 .feature-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* small | large */
-  gap: 0.5rem;
-  padding: 0.5rem;
+  font-size: 14px;
+  grid-template-columns: 0.5fr 1.5fr; /* small | large */
+  gap: 0.6rem;
+  padding: 0.6rem;
 }
 
 .box {
@@ -29,11 +59,11 @@
   color: #a1a0a0;
 }
 
-.container-personal{
+.container-person{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .compare-person{
@@ -44,9 +74,9 @@
 
 .person-option{
   display: inline-flex;
-  gap: 2.4rem;
+  gap: 0.8rem;
   align-items: center;
-  padding: 0rem 4.5rem;
+  padding-top: 0.3rem;
 }
 
 .person{
@@ -59,19 +89,29 @@
   cursor: pointer;
 }
 
-.person-icon {
-  font-size: 2.5rem;
-  color: #192a5e;
+.person {
+  color: #003366;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.person:hover .icon-family {
+  filter: brightness(0) saturate(100%) invert(32%) sepia(92%) saturate(1482%) hue-rotate(198deg) brightness(95%) contrast(96%);
+}
+
+.icon-family {
+  height: 25px;
+  width: 35px;
 }
 
 /* count badge */
 .person-count {
-  padding: 0.3rem 1.5rem;
-  background-color: #192a5e;
+  width: 3rem;
+  padding: 0.3rem 1rem;
+  background-color: #003366;
   color: #ffffff;
   font-size: 16px;
   transition: background-color 0.2s ease;
+  border-radius: 8px;
 }
 
 /* hover ONLY affects icon + count */
@@ -97,20 +137,28 @@
   font-size: 14px;
   border-radius: 6px;
   outline: none;
-  padding: 0.3rem 2.7rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #4a4949;
+  width: 18rem;
 }
 
+.container-compare{
+  display: flex;
+  align-items: center;
+}
 
 .compare{
   border: none;
   font: inherit;
   font-weight: 500;
   outline: none;
-  color: #ffffff;
-  background-color: #192a5e;
+  color: #f8f9fa;
+  background-color: #0085e0;
   transition: background-color 0.2s ease;
-  padding: 0.2rem 7rem;
+  padding: 0.3rem 0.2rem;
   cursor: pointer;
+  border-radius: 8px;
+  width: 24.5rem;
 }
 
 .compare:hover{
@@ -119,8 +167,9 @@
 
 .container-wish{
   font-size: 16px;
-  color: #414040;
+  color: #1a1a1a;
   align-items: center;
+  padding-bottom: 0.6rem;
 }
 
 .center-text {
@@ -128,16 +177,22 @@
   text-align: center;  /* centers only this line */
 }
 
+.container-wish strong {
+  font-weight: 700;
+}
+
+
 .callback{
   border: none;
   font: inherit;
   font-weight: 500;
   outline: none;
-  color: #ffffff;
-  background-color: #fc770aee;
+  color: #f8f9fa;
+  background-color: #ff6b00;
   padding: 0.3rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  border-radius: 8px;
 }
 
 .callback:hover {

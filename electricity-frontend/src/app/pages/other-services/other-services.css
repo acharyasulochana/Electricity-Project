@@ -1,5 +1,4 @@
 .main-container-service{
-  padding: 0 1rem 0 1rem;
   background-color: #ffffff;
   font-size: 16px;
   display: block;
@@ -17,9 +16,9 @@
 
 .container-all-services{
   display:flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: stretch;
-  padding: 0.55rem 2rem;
+  padding: 0.55rem 1rem;
   border-radius: 4px;
   border: 1px solid #fc770aee;
 }
@@ -28,36 +27,44 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 0rem 0 0.5rem 0rem;
   box-sizing: border-box;
   font-weight: 500;
 }
 
 
-.icon-btn {
+.main-btn {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.3rem;
   align-items: center;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: inherit;
-  font-weight: 510;
+  font-weight: 500;
   border: none !important;
   box-shadow: none;
   outline: none;
   color: #ffffff;
   background-color: #fc770aee;
-  padding: 0.2rem 1rem 0.2rem 0.7rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   border-radius: 4px;
+}
+
+.btn-text {
+  display: flex;
+  align-items: center;
 }
 
 /* Hover effect */
 .icon-btn:hover {
   background-color: #e68830ef;
-  color: #000;
 }
 
 /* Optional: active state */
 .icon-btn.active {
   color: white;
+}
+
+.icon-transport {
+  height: 20px;
+  width: 20px;
 }

@@ -13,5 +13,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navigation.css',
 })
 export class Navigation {
+  isMenuOpen = false;
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

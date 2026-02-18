@@ -1,48 +1,76 @@
 <header class="header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <!-- Logo image placeholder -->
-        <img src="logo.png" alt="Logo" class="logo-img">
-      </div>
-      <div class="header-search">
-        <input type="text" placeholder="Was möchten Sie vergleichen?" class="search-input">
-        <button class="search-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="expert-container">
-        <div class="icon-circle phone">
-          <mat-icon>phone</mat-icon>
-        </div>
-        <div class="expert">Beratung durch Experten?<span class="phone-number">08157 / 99942-0</span>
-        </div>
-      </div>
-      <div class="contact-form">
-        <button class="contact-button">Kontaktformular</button>
-      </div>
-      <div class="contact-form">
-        <button class="contact-button">Live-Chat</button>
-      </div>
-      <div class="header-right">
-        <button class="icon-circle person" aria-label="profile">
-          <mat-icon>chat</mat-icon>
-        </button>
-      </div>
-      <div class="header-right">
-        <button class="icon-circle person" aria-label="profile">
-          <mat-icon>chat</mat-icon>
-        </button>
-      </div>
-      <div class="header-right">
-        <button class="icon-circle person" aria-label="profile">
-          <mat-icon>person</mat-icon>
-        </button>
-        <a href="#" class="login-link">Login</a>
-      </div>
+  <div class="header-content">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="assets/icons/Logo.png" alt="Logo" class="logo-img">
     </div>
+
+    <!-- Search -->
+    <div class="header-search">
+      <input type="text" placeholder="Was möchten Sie vergleichen?" class="search-input">
+      <button class="search-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="container-contact">
+      <div class="expert-container">
+        <div class="expert">
+          <span class="text">Sie wünschen eine Beratung durch Experten?</span>
+        </div>
+        <div class="icon phone">
+          <img src="assets/icons/Telefonhörer_Weiss.png" class="phone-icon" alt="telephone-icon">
+        </div>
+        <div><span class="expert phone">
+            <span class="text">08157 / 999 42 - 0</span>
+          </span></div>
+      </div>
+
+      <div class="contact">
+        <button class="contact-button">
+          <span class="icon-wrapper">
+            <img src="assets/icons/Lice-Chat_weiss.png" class="chat-icon" alt="chat-icon">
+          </span>
+          <span class="text">Live-Chat</span>
+        </button>
+
+        <button class="contact-button">
+          <span class="icon-wrapper">
+            <img src="assets/icons/WhatsApp_weiss.png" class="chat-icon" alt="whats-app">
+          </span>
+          <span class="text">WhatsApp</span>
+        </button>
+
+        <button class="contact-button">
+          <span class="icon-wrapper">
+            <img src="assets/icons/Mail.png" class="email-icon" alt="mail">
+          </span>
+          <span class="text">E-Mail</span>
+        </button>
+
+        <!-- Chat -->
+        <button class="contact-button">
+          <span class="icon-wrapper">
+            <img src="assets/icons/Kontaktformular.png" class="chat-icon" alt="contact-form">
+          </span>
+          <span class="text">Kontaktformular</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Profile -->
+    <div class="container-profile">
+      <button class="profile">
+        <span class="login">
+          <img src="assets/icons/Login.png" class="login-icon" alt="login">
+        </span>
+        <h3 class="text login-link">Login</h3>
+      </button>
+    </div>
+
   </div>
 </header>

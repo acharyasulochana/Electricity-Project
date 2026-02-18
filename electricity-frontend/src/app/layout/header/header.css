@@ -1,153 +1,247 @@
+* {
+  box-sizing: border-box;
+}
+
+/*  BASE HEADER */
+
 .header {
-    background-color: #fff;
-    padding: 0.6rem 4rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  font-family: 'Encode Sans', sans-serif;
 }
 
 .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;   /* Important */
+  padding: 0rem 1.75rem;
 }
 
 .logo-img {
-    height: 50px;
+  height: 90px;
 }
 
+
 .header-search {
-    flex: 1;
-    max-width: 20%;
-    display: flex;
-    align-items: center;
-    background-color: #f5f5f5;
-    border-radius: 25px;
-    padding: 2px;
-    border: 2px solid transparent;
-    transition: all 0.3s;
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 25px;
+  padding: 3px;
+  border: 2px solid transparent;
+  transition: 0.3s;
 }
 
 .header-search:focus-within {
-    border-color: #00a651;
-    background-color: #fff;
+  border-color: #00a651;
+  background-color: #fff;
 }
 
 .search-input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    padding: 8px 10px;
-    font-size: 14px;
-    outline: none;
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 8px 12px;
+  font-size: 16px;
+  outline: none;
+  color:  #1a1a1a;
 }
 
 .search-btn {
-    background-color: #192a5e;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: #fff;
+  background-color: #003366;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
 }
 
 .search-btn:hover {
-    background-color: #4b70dd;
+  background-color: #0085e0;
+  transition: background-color 0.25s ease;
+}
+
+/*  PHONE SECTION  */
+.container-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-radius: 8px;
+  border-bottom: 1px solid #ff6b00;
+  border-bottom: 1px solid #ff6b00;
+  background:
+  linear-gradient(#ff6b00, #ff6b00) left center / 1px 100% no-repeat,
+  linear-gradient(#ff6b00, #ff6b00) right center / 1px 100% no-repeat;
+  background-origin: border-box;
+  padding-bottom: 0.3rem;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
 }
 
 .expert-container {
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background-color: #003366;
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
 }
 
 .expert {
-  justify-content: center; /* vertically center within li */
-  text-decoration: none;
-  color: #253f8e;
-  font-weight: 550;
+  color: #ffffff;
+  padding-bottom: 4px;
+}
+
+.text{
+  margin: 0;
   font-size: 16px;
+  font-weight: 500;
 }
 
 .phone-number {
-  display: block;       /* makes it appear on a new line */
-  font-size: 16px;
-  font-weight: 550;
+  display: block;
+}
+
+.phone-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #003366;
+}
+
+.chat-icon{
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b00;
+
+}
+
+.email-icon{
+  width: 20px;
+  height: 15px;
+  background-color: #ff6b00ed;
+
+}
+
+
+.login-icon{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #1a1a1a;
 }
 
 
 .contact-button {
-  flex: 1;
-  padding: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px 7px 8px;
   border: none;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-
-.contact-button {
-  background-color: #fc770aee;
+  border-radius: 8px;
+  background-color: #ff6b00;
   color: white;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
 }
 
 .contact-button:hover {
   background-color: #e68830ef;
+  transition: background-color 0.25s ease;
 }
 
-.header-right {
+.icon-wrapper {
   display: flex;
-  padding: 5px 5px;
   align-items: center;
-  gap:5px
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.25s ease;
 }
 
+.contact-button:hover .icon-wrapper .email-icon,
+.contact-button:hover .icon-wrapper .chat-icon
+  {
+  background-color: #e68830ef;
+  transition: background-color 0.25s ease;
+}
+
+/*  PROFILE */
 .login-link {
-    text-decoration: none;
-    color: #192a5e;
-    font-weight: 600;
-    font-size: 18px;
-    white-space: nowrap;
+  text-decoration: none;
+  color: #003366;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.icon-circle {
+.login-link:hover {
+  color: #0085e0;
+  transition: background-color 0.25s ease;
+}
+
+.profile {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 2rem;
-  height: 2rem;
-  background-color: #ffffff;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  line-height: 0;
-  border: none !important;
-  box-shadow: none;
-  outline: none;
 }
 
-.login-link:hover, icon-circle .person:hover{
-  color: #4b70dd;
-  transform: scale(1.05);
+.login {
+  padding-right: 1rem;
 }
 
-.icon-circle mat-icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
-  color: #192a5e;
-}
 
-.phone mat-icon {
-  font-size: 2rem;
-  color: #fc770aee;
-  padding: 0px 2px;
-  margin-top: 6px;
-}
+/*  MOBILE ONLY (<768px)  */
 
-.person mat-icon {
-  font-size: 1.5rem;
+@media (max-width: 768px), (max-width: 480px) {
+
+  .header-content {
+    flex-wrap: wrap;
+  }
+
+  /* Row 1 */
+  .logo {
+    flex: 1 1 40%;
+  }
+
+  .header-search {
+    flex: 1 1 60%;
+    max-width: 100%;
+  }
+
+  /* Row 2 */
+  .expert-container,
+  .contact-button,
+  .profile {
+    flex: 1 1 25%;
+    justify-content: center;
+  }
+
+  /* Hide text on mobile */
+  .expert,
+  .contact-button span,
+  .login-link {
+    display: none;
+  }
+
+  .contact-button {
+    padding: 4px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+  }
 }

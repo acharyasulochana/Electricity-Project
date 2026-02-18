@@ -3,17 +3,41 @@
 .container-discount{
   display: flex;
   justify-content: space-between;
-  padding: 0.6rem 1rem 0.4rem 1rem;
+  align-items: center;
+  padding: 0.6rem 1.75rem 0.4rem 1.75rem;
   font-size: 16px;
   font-weight: 500;
   color: #ffffff;
-  background-color: green;
-  margin: 0.6rem 0rem;
-
+  background-color:  #00a651;
+  margin: 1rem 0rem;
 }
 
 .container-partner{
   display: flex;
   gap: 0.5rem;
-  align-items: center;
+}
+
+.expert{
+  display: flex;
+}
+
+.info-icon {
+  vertical-align: super;
+  position: relative;
+  margin-left: 1px;
+  cursor: pointer;
+  color:  #ffffff;
+
+  width: 1em;
+  height: 1em;
+
+  font-size: 0.7em;
+  font-weight: 500;  /* controls the “i” size */
+  border-radius: 50%;
+
+}
+
+.icon-check {
+  width: 25px;
+  height: 25px;
 }
