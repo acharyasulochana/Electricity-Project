@@ -2,9 +2,9 @@
   gap: 0.5rem;
   background-color: rgba(255, 255, 255, 0.75);
   padding-bottom: 0.6rem;
-  border: 2px solid #00a651;
+  border: 1px solid #00a651;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .container-callback {
@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  border: 2px solid #ff6b00;
+  border: 1px solid #ff6b00;
   padding: 0.6rem;
 }
 
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.32rem 0.5rem;
+  padding: 0.1rem 0.5rem 0.4rem 0.5rem;
   font-size: 16px;
   font-weight: 500;
   color: #ffffff;
@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.35rem 0.5rem;
+  padding: 0.2rem 0.5rem 0.3rem 0.5rem;
   font-size: 16px;
   font-weight: 500;
   color: #ffffff;
@@ -45,19 +45,56 @@
 
 .feature-grid {
   display: grid;
-  font-size: 14px;
-  grid-template-columns: 0.5fr 1.5fr; /* small | large */
   gap: 0.6rem;
-  padding: 0.6rem;
+  padding: 0.5rem;
 }
 
+.row {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.row-1 {
+  grid-template-columns: 0.6fr 1.4fr;
+}
+
+.row-2 {
+  grid-template-columns: 1.4fr 0.6fr;
+}
+
+
 .box {
-  padding: 0.3rem;
-  background-color: #ffffff;
-  border-radius: 6px;
+  width: 100%;
+  padding: 0.4rem 0.3rem;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
   border: 1px solid #a1a0a0;
   color: #a1a0a0;
+  background-color: #f8f9fa;
 }
+
+.input-arrow {
+  position: relative;
+}
+
+.input-arrow .box {
+  padding-right: 34px;
+}
+
+.input-arrow::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #333;
+  pointer-events: none;
+}
+
+
 
 .container-person{
   display: flex;
@@ -94,19 +131,41 @@
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.person:hover .icon-family {
+.person:hover .icon-family-1, .person:hover .icon-family-2, .person:hover .icon-family-3,
+.person:hover .icon-family-4, .person:hover .icon-family-6 {
   filter: brightness(0) saturate(100%) invert(32%) sepia(92%) saturate(1482%) hue-rotate(198deg) brightness(95%) contrast(96%);
 }
 
-.icon-family {
-  height: 25px;
+.icon-family-1 {
+  height: 30px;
+  width: 12px;
+  color: #003366;
+}
+
+.icon-family-2 {
+  height: 30px;
+  width: 25px;
+}
+
+.icon-family-3{
+  height: 30px;
   width: 35px;
+}
+
+ .icon-family-4 {
+  height: 30px;
+  width: 45px;
+}
+
+.icon-family-6 {
+  height: 30px;
+  width: 65px;
 }
 
 /* count badge */
 .person-count {
   width: 3rem;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 1rem 0.4rem 1rem;
   background-color: #003366;
   color: #ffffff;
   font-size: 16px;
@@ -155,7 +214,7 @@
   color: #f8f9fa;
   background-color: #0085e0;
   transition: background-color 0.2s ease;
-  padding: 0.3rem 0.2rem;
+  padding: 0.2rem 0.2rem 0.4rem 0.2rem;
   cursor: pointer;
   border-radius: 8px;
   width: 24.5rem;
@@ -189,7 +248,7 @@
   outline: none;
   color: #f8f9fa;
   background-color: #ff6b00;
-  padding: 0.3rem 1rem;
+  padding: 0.2rem 1rem 0.4rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
   border-radius: 8px;

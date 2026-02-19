@@ -3,12 +3,12 @@
   flex-direction: column;
   box-sizing: border-box;
   font-weight: 500;
-  width: 100%;
+  height: 100%;
 }
 
 .our-services-header{
   background-color: #ff6b00;
-  padding: 0.3rem;
+  padding: 0.2rem 0.3rem 0.4rem 0.3rem;
   font-size: 16px;
   font-weight: 500;
   border-top-left-radius: 8px;
@@ -54,4 +54,8 @@
 .icon-check{
   height: 25px;
   width: 25px;
+}
+
+.btn-header-text {
+  padding-bottom: 0.rem;
 }

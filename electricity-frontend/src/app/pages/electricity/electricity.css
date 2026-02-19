@@ -24,10 +24,10 @@
   outline: none;
   color: #ffffff;
   background-color: #003366;
-  padding: 0.2rem 0.7rem 0.2rem 0.5rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
   border-radius: 6px;
   height: 32px;
-  width: 250px;
+
 }
 
 /* Hover effect */
@@ -46,9 +46,19 @@
   width: 15px;
 }
 
+.icon-cable {
+  height: 20px;
+  width: 13px;
+  padding-right: 2px;
+}
+
 .icon-pump {
   height: 15px;
   width: 15px;
+}
+
+.btn-text {
+  padding-bottom: 0.2rem;
 }
 
 
