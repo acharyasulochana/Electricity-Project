@@ -7,6 +7,8 @@ import { NightHeaters } from './pages/night-heaters/night-heaters';
 import { CarElectricity } from './pages/car-electricity/car-electricity';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   { path: 'home', component: Home, children: [
       { path: '', redirectTo: 'electricity', pathMatch: 'full' },
       { path: 'electricity', component: Electricity },

@@ -22,7 +22,13 @@ export class CarElectricity {
     Informationen zu Ihrem Zähler zu erhalten. Bei einem bereits installierten eigenen Ladestromzähler können geringere Netzentgelte erhoben werden. Der Zähler muss dafür den technischen Anforderungen einer steuerbaren Verbrauchseinheit
     genügen und bei Ihrem Netzbetreiber registriert werden. Bei einem gemeinsamen Zähler für Haushalt und E-Auto können Sie sogenannte Kombitarife nutzen.`;
 
-  discountinfo = `need to add text`;
+  discountinfo = `<p> <strong> So haben wir gerechnet </strong> </p>
+      <p> Wohnort: <i> Dortmund, 44141 </i>
+       Jahresverbrauch: <i> 4.000 kWh </i> </p>
+      <p> Günstigster Tarif: immergrün! Spar Smart FairMax, Kosten im ersten Jahr: 920,84 Euro </p>
+      <p> Grundversorgungstarif: Dortmunder Energie- und Wasserversorgung GmbH Unser Strom.standard, Kosten: 1.828,72 Euro </p>
+      <p><strong>Einsparung: 907,88 Euro</strong> <p>
+      <p>(Stand: 16.02.2026) </p> `;
 
   select(option: 'ja' | 'nein') {
     this.selectedOption = option;

@@ -52,3 +52,41 @@
   top: 74%;
   right: 3%;
 }
+
+
+.consumption-number{
+  padding: 0.37rem 0.5rem 0.37rem 0.5rem;
+  border: 1px solid #4a4949;
+  width: 18.3rem;
+  background-color: #ffffff;
+}
+
+
+.more-person {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  padding: 0rem;
+}
+
+.consumption-area{
+  flex: 1;
+  border: none;
+  font-size: 14px;
+  border-radius: 6px;
+  outline: none;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #4a4949;
+  width: 3.5rem;
+  background-color: #ffffff;
+}
+
+
+/*   ---------- dialog box ------------- */
+
+:host ::ng-deep .dialog-content p {
+  margin: 0 ;
+  font-size: 18px;
+}
+
+

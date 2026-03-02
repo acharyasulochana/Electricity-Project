@@ -181,16 +181,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.5rem;
 }
 
-.consumption-number{
-  flex: 1;
-  border: none;
-  font-size: 14px;
-  border-radius: 6px;
-  outline: none;
-  padding: 0.4rem 0.7rem;
-  border: 1px solid #4a4949;
-  width: 18rem;
-}
 
 .container-compare{
   display: flex;
@@ -398,17 +388,100 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*    information when hover */
-.info-box {
-  position: absolute;
-  width: 420px;
-  max-width: 80vw;
-  z-index: 1000;
-  font-size: 12px;
-  background-color: rgba(255, 255, 255, 0.75);
-  background: #0085e0;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+/* ------------------------------------------------  Dialog box --------------------------------- */
+
+button[mat-icon-button] {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  height: 15px;
+  padding: 0.5rem 1rem 0 0;
 }
 
+
+.dialog-box {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem 0.7rem 1rem;
+  font-size: 14px;
+}
+
+.dialog-header {
+  display: flex;
+  cursor: pointer;
+  line-height: 0.5;
+  font-weight: 600;
+  width: 100%;
+  justify-content: flex-end;
+
+}
+
+.dialog-content {
+  /* white-space: pre-line; */
+  line-height: 1.5;
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  font-size: 14px
+}
+
+.dialog-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+  width: 40%;
+  flex-shrink: 0;
+}
+
+.left p {
+  margin: 0;
+}
+
+.right {
+  flex: 1;
+}
+
+.right.full {
+  width: 100%;
+}
+
+.right p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dialog-content p {
+  margin: 10px;
+}
+
+.dialog-content strong {
+  font-weight: 600;
+}
+
+.dialog-content {
+  /* white-space: pre-line; */
+  line-height: 1.5;
+}
+
+.text-dialog-box {
+  font-size: 18px;
+}
+
+:host ::ng-deep .dialog-content p {
+  margin: 0 ;
+  font-size: 18px;
+}

@@ -1,14 +1,12 @@
 <ng-template #infoDialog let-dialogRef="dialogRef">
   <div class="dialog-container">
     <div class="dialog-header">
-      <button mat-icon-button class="close-btn" (click)="dialog.closeAll()">
-        <mat-icon>close</mat-icon>
-      </button>
+      <mat-icon (click)="dialog.closeAll()">close</mat-icon>
     </div>
 
     <div class="dialog-item" *ngFor="let item of currentDialogData">
 
-      <!-- 👇 show LEFT only if image OR title exists -->
+      <!-- show LEFT only if image OR title exists -->
       <div class="left" *ngIf="item.image || item.title">
         <img *ngIf="item.image" [src]="item.image" class="dialog-image" alt="Image" />
         <p *ngIf="item.title" class="dialog-title">
@@ -16,7 +14,7 @@
         </p>
       </div>
 
-      <!-- 👇 RIGHT takes full width if left is missing -->
+      <!-- RIGHT takes full width if left is missing -->
       <div class="right" [class.full]="!(item.image || item.title)">
         <p>{{ item.description }}</p>
       </div>
@@ -32,6 +30,18 @@
     </div>
   </div>
 </ng-template>
+
+<ng-template #infoDialogDiscount let-dialogRef="dialogRef">
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <mat-icon (click)="dialog.closeAll()">close</mat-icon>
+    </div>
+    <div class="dialog-content" [innerHTML]="currentDialogText">
+    </div>
+  </div>
+</ng-template>
+
+
 
 <div class="compare-all">
   <div class="compare-price">
@@ -145,7 +155,7 @@
       </div>
       <div class="item-discount-bottom">
         <span class="item-price">sparen
-          <mat-icon class="info-icon">
+          <mat-icon class="info-icon" (click)="openInfo(infoDialogDiscount, discountinfo)">
             info_i
           </mat-icon>
         </span>

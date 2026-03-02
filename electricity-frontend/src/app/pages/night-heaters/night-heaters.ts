@@ -24,6 +24,10 @@ export interface InfoDialogData {
   description: string;
 }
 
+export interface InfoDialogDiscount {
+  description: string;
+}
+
 @Component({
   selector: 'app-night-heaters',
   imports: [MatIconModule, CommonModule, MatDialogModule],
@@ -61,6 +65,7 @@ export class NightHeaters {
 
     singleImage: '/assets/images/single_meter.png',
     doubleImage: '/assets/images/double_meter.png',
+
     singleDescription:`Ihr Heizstromzähler ist entweder mit einem Zählwerk ausgestattet (Eintarifzähler) oder er besitzt zwei Zählwerke (Doppeltarifzähler).
         Während der Eintarifzähler nur einen Verbrauchswert anzeigt, erfasst der Doppeltarifzähler zwei Verbrauchswerte (HT = Hochtarif, NT = Niedertarif).`,
     doubleDescription:
@@ -74,6 +79,13 @@ export class NightHeaters {
     description2: `Bei einigen älteren Nachtspeicherheizungen wird Haushaltsstrom und Heizstrom noch gemeinsam gemessen, es gibt also nur einen Stromzähler für beide Arten von Verbräuchen.`,
   };
 
+  discountInfo = { description: `<p> <strong>So haben wir gerechnet </strong> </p>
+      <p> Wohnort: <i> Dortmund, 44141 </i>
+       Jahresverbrauch: <i> 4.000 kWh </i> </p>
+      <p> Günstigster Tarif: immergrün! Spar Smart FairMax, Kosten im ersten Jahr: 920,84 Euro </p>
+      <p> Grundversorgungstarif: Dortmunder Energie- und Wasserversorgung GmbH Unser Strom.standard, Kosten: 1.828,72 Euro </p>
+      <p><strong>Einsparung: 907,88 Euro</strong> <p>
+      <p>(Stand: 16.02.2026) </p> ` };
 
 
   select(option: 'ja' | 'nein') {
@@ -116,6 +128,15 @@ export class NightHeaters {
       },
     ];
     this.dialog.open(template, { width: '470px', maxWidth: '80vw' });
+  }
+
+  openDiscountInfo(template: any) {
+    this.currentDialogData = [
+      {
+        description: this.discountInfo.description,
+      }
+    ];
+    this.dialog.open(template, { width: '200px', maxWidth: '80vw' });
   }
 
 

@@ -53,61 +53,6 @@
 
 /* ------------------------------------------------  Dialog box --------------------------------- */
 
-button[mat-icon-button] {
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  height: 20px;
-  padding: 0.5rem 0.5rem 0 0;
-}
-
-.dialog-header {
-  display: flex;
-  cursor: pointer;
-  line-height: 0.5;
-  font-weight: 600;
-  width: 100%;
-  justify-content: flex-end;
-}
-
-.dialog-content {
-  /* white-space: pre-line; */
-  line-height: 1.5;
-}
-
-
-.dialog-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 16px;
-  position: relative;
-  padding: 0rem 0.5rem 0.5rem 1rem;
-  font-size: 14px;
-}
-
-
-.dialog-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-
-.left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 60px;
-  width: 40%;
-  flex-shrink: 0;
-}
-
-.left p {
-  margin: 0;
-}
-
-
 .dialog-image {
   width: 160px;
   height: 100px;
@@ -122,18 +67,11 @@ button[mat-icon-button] {
 }
 
 
-.right {
-  flex: 1;
+:host ::ng-deep .dialog-content p {
+  margin: 0 ;
+  font-size: 18px;
 }
 
-.right.full {
-  width: 100%;
-}
 
-.right p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
 
 

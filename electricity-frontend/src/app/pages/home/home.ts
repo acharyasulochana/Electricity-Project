@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [ MatIconModule, MatInputModule, CommonModule, Discount, Gas, NightHeaters, CarElectricity, HeatingElectricity, Electricity, RouterModule],
+  imports: [ MatIconModule, MatInputModule, CommonModule, Discount, RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

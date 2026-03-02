@@ -15,8 +15,8 @@ export interface SingelDoubleMeter {
 }
 
 export interface InfoDialogData {
-  title: string;
-  image: string;
+  title?: string;
+  image?: string;
   description: string;
 }
 
@@ -63,6 +63,14 @@ export class HeatingElectricity {
     'Falls Sie keinen separaten Zähler für Ihre Wärmepumpe haben, nutzen Sie bitte unseren Stromvergleich für den gesamten Haushalt.'
   ];
 
+  discountinfo =  `<p> <strong>So haben wir gerechnet </strong> </p>
+      <p> Wohnort: <i> Dortmund, 44141 </i>
+       Jahresverbrauch: <i> 4.000 kWh </i> </p>
+      <p> Günstigster Tarif: immergrün! Spar Smart FairMax, Kosten im ersten Jahr: 920,84 Euro </p>
+      <p> Grundversorgungstarif: Dortmunder Energie- und Wasserversorgung GmbH Unser Strom.standard, Kosten: 1.828,72 Euro </p>
+      <p><strong>Einsparung: 907,88 Euro</strong> <p>
+      <p>(Stand: 16.02.2026) </p> `;
+
 
   select(option: 'ja' | 'nein') {
     this.selectedOption = option;
@@ -100,6 +108,13 @@ export class HeatingElectricity {
     this.dialog.open(template, { width: '470px', maxWidth: '80vw' });
   }
 
+
+  currentDialogText = '';
+
+openInfo(template: any, text: string) {
+  this.currentDialogText = text;
+  this.dialog.open(template, { width: '200px', maxWidth: '80vw' });
+}
 
 
 }

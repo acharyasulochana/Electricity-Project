@@ -1,3 +1,13 @@
+<ng-template #infoDialog let-dialogRef="dialogRef">
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <mat-icon (click)="dialog.closeAll()">close</mat-icon>
+    </div>
+    <div class="dialog-content" [innerHTML]="currentDialogText">
+    </div>
+  </div>
+</ng-template>
+
 <div class="compare-all">
   <div class="compare-price">
     <div class="container-address">
@@ -18,33 +28,33 @@
       <div class="feature-header1">Bitte Personenanzahl anklicken <strong> oder </strong> kWh / Jahr direkt eingaben
       </div>
       <div class="container-person">
-        <div class="compare-person">
+        <div class="compare-person" *ngIf="!showCustomInput">
           <div class="person-option">
-            <button class="person" (click)="selectPersons(1, 1600)" [class.active]="selectedPersons === 1">
+            <button class="person" (click)="selectPersons(1)" [class.active]="selectedPersons === 1">
               <span class="person-icon">
                 <img src="assets/icons/Familie_1.png" class="icon-family-1" alt="family">
               </span>
               <span class="person-count">1</span>
             </button>
-            <button class="person" (click)="selectPersons(2, 2510)" [class.active]="selectedPersons === 2">
+            <button class="person" (click)="selectPersons(2)" [class.active]="selectedPersons === 2">
               <span class="person-icon">
                 <img src="assets/icons/Familie_2.png" class="icon-family-2" alt="family">
               </span>
               <span class="person-count">2</span>
             </button>
-            <button class="person" (click)="selectPersons(3, 3500)" [class.active]="selectedPersons === 3">
+            <button class="person" (click)="selectPersons(3)" [class.active]="selectedPersons === 3">
               <span class="person-icon">
                 <img src="assets/icons/Familie_3.png" class="icon-family-3" alt="family">
               </span>
               <span class="person-count">3</span>
             </button>
-            <button class="person" (click)="selectPersons(4, 4400)" [class.active]="selectedPersons === 4">
+            <button class="person" (click)="selectPersons(4)" [class.active]="selectedPersons === 4">
               <span class="person-icon">
                 <img src="assets/icons/Familie_4.png" class="icon-family-4" alt="family">
               </span>
               <span class="person-count">4</span>
             </button>
-            <button class="person" (click)="selectPersons(6, 6100)" [class.active]="selectedPersons === 6">
+            <button class="person" (click)="selectMehr()">
               <span class="person-icon">
                 <img src="assets/icons/Familie_6.png" class="icon-family-6" alt="family">
               </span>
@@ -52,10 +62,27 @@
             </button>
           </div>
         </div>
-        <div class="total-consumption">
-          <input type="text" class="consumption-number" [value]="consumption">
+        <div class="total-consumption" *ngIf="!showCustomInput">
+          <span class="consumption-number"> {{ consumption | number }}</span>
           <span class="watt-per-year">kWh / Jahr</span>
         </div>
+        <!-- Extra persons (shown when mehr clicked) -->
+        <ng-container *ngIf="showCustomInput">
+          <div class="more-person">
+            <div class="dialog-header">
+              <mat-icon class="close-button" (click)="closeCustomInput()">close</mat-icon>
+            </div>
+            <div class="total-consumption">
+              <input id="personsInput" type="number" min="1" class="consumption-area" placeholder="z. B. 6"
+                (input)="onCustomPersonsChange($any($event.target).value)">
+              <span>Personen im Haushalt</span>
+            </div>
+            <div class="total-consumption">
+              <span class="consumption-number"> {{ consumption | number }}</span>
+              <span class="watt-per-year">kWh / Jahr</span>
+            </div>
+          </div>
+        </ng-container>
         <div class="container-compare">
           <button class="compare"> Jetzt Vergleichen</button>
         </div>
@@ -90,15 +117,11 @@
       </div>
       <div class="item-discount-bottom">
         <span class="item-price">sparen
-          <mat-icon class="info-icon" (mouseenter)="activeInfo='discountinfo'" (mouseleave)="activeInfo=null">
+          <mat-icon class="info-icon" (click)="openInfo(infoDialog, discountinfo)">
             info_i
           </mat-icon>
         </span>
-
       </div>
-    </div>
-    <div class="info-box discount" *ngIf="activeInfo==='discountinfo'">
-      {{ discountinfo }}
     </div>
   </div>
 </div>

@@ -43,19 +43,31 @@
   height: 25px;
 }
 
-
 .info-container {
   position: relative;
   display: inline-block;
 }
 
 
-.left {
-  top: 110%;
-  right: 120%;
+.dialog-box {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem 0.7rem 1rem;
+  font-size: 14px;
 }
 
-.right {
-  top: 120%;
-  left: 0;
+.dialog-header {
+  display: flex;
+  cursor: pointer;
+  line-height: 0.5;
+  font-weight: 600;
+  width: 100%;
+  justify-content: flex-end;
+  padding-bottom: 0.2rem ;
+  height: 15px;
+}
+
+.dialog-content {
+  /* white-space: pre-line; */
+  line-height: 1.5;
 }

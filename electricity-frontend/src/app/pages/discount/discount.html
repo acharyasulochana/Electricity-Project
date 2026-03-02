@@ -1,3 +1,14 @@
+<ng-template #infoDialog let-dialogRef="dialogRef">
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <mat-icon (click)="dialog.closeAll()">close</mat-icon>
+    </div>
+    <div class="dialog-content" [innerHTML]="currentDialogText">
+    </div>
+  </div>
+</ng-template>
+
+
 <div class="container-discount">
   <div class="container-partner">
     <div class="icon-circle ">
@@ -6,12 +17,8 @@
       </span>
     </div>
     <div class="expert">Dauerhaft fester Ansprechpartner
-      <div class="info-container" (mouseenter)="activeInfo='ansprechpartner'" (mouseleave)="activeInfo=null">
+      <div class="info-container" (click)="openInfo(infoDialog, ansprechpartner)">
         <mat-icon class="info-icon-discount">info_i</mat-icon>
-
-        <div class="info-box right" *ngIf="activeInfo==='ansprechpartner'">
-          {{ ansprechpartner }}
-        </div>
       </div>
 
     </div>
@@ -34,12 +41,8 @@
       </span>
     </div>
     <div class="expert">Automatische Wechselerinnerung
-      <div class="info-container" (mouseenter)="activeInfo='wechselerinnerung'" (mouseleave)="activeInfo=null">
+      <div class="info-container" (click)="openInfo(infoDialog, wechselerinnerung)">
         <mat-icon class="info-icon-discount">info_i</mat-icon>
-
-        <div class="info-box left" *ngIf="activeInfo==='wechselerinnerung'">
-          {{ wechselerinnerung }}
-        </div>
       </div>
     </div>
   </div>

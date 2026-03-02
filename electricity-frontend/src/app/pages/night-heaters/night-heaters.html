@@ -1,24 +1,19 @@
 <ng-template #infoDialog let-dialogRef="dialogRef">
   <div class="dialog-container">
     <div class="dialog-header">
-      <button mat-icon-button class="close-btn" (click)="dialog.closeAll()">
-        <mat-icon>close</mat-icon>
-      </button>
+      <mat-icon (click)="dialog.closeAll()">close</mat-icon>
     </div>
-
     <div class="dialog-item" *ngFor="let item of currentDialogData">
-
       <!-- 👇 show LEFT only if image OR title exists -->
       <div class="left" *ngIf="item.image || item.title">
         <img *ngIf="item.image" [src]="item.image" class="dialog-image" alt="Image" />
-        <p *ngIf="item.title" class="dialog-title">
-          {{ item.title }}
+        <p *ngIf="item.title" class="dialog-title" [innerHtml]="item.title">
         </p>
       </div>
 
       <!-- 👇 RIGHT takes full width if left is missing -->
-      <div class="right" [class.full]="!(item.image || item.title)">
-        <p>{{ item.description }}</p>
+      <div class="right" [class.full]="!(item.image || item.title)" [innerHtml]="item.description">
+        <p></p>
       </div>
 
     </div>
@@ -140,7 +135,7 @@
       </div>
       <div class="item-discount-bottom">
         <span class="item-price">sparen
-          <mat-icon class="info-icon">
+          <mat-icon class="info-icon" (click)="openDiscountInfo(infoDialog)">
             info_i
           </mat-icon>
         </span>
