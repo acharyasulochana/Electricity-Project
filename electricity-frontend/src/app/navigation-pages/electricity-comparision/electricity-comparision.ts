@@ -14,4 +14,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ElectricityComparision {
 
+  isOpen = true;
+
+  toggleDiv() {
+    this.isOpen = !this.isOpen;
+  }
+
 }

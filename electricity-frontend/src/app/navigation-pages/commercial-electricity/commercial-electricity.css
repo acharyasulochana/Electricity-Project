@@ -1,36 +1,14 @@
- .page-layout {
-    display: flex;
-    gap: 1.3rem;
-    padding: 1.3rem;
-  }
-
-  /* ── Sidebar ── */
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.3rem;
-    width: 18%;
-  }
 
   /* ── Cards ── */
   .card {
     background: #fff;
-    border-radius: 10px;
-    border: 1.5px solid #0085e0;
+    border-radius: 8px;
+    border: 1px solid #0085e0;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,100,200,.07);
   }
 
-  .card-header {
-    background: #0085e0;
-    color: #fff;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 7px 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  /* ── Card-header in style.css ── */
 
   .nav-icon-strom{
     width: 13px;
@@ -104,21 +82,8 @@
   .link-blue .info-icon { border-color: #3a9bd5; color: #3a9bd5; }
 
 
-  /* Ansprechpartner */
-  .partner-photo-wrap {
-    display: flex; justify-content: center; align-items: flex-end;
-    width: 100%;
-    padding-top: 12px; overflow: hidden;
-  }
-  .partner-photo-wrap img {
-  width: 80%;
-  height: 100%;
-}
+  /* Ansprechpartner  in style.css*/
 
-  .partner-info { padding: 9px 10px 10px; text-align: center; }
-  .partner-name { font-weight: 700; font-size: 16px; margin-bottom: 0.5rem;}
-  .container-main-btn {flex: 1; display:flex; flex-direction: column; gap: 0.55rem; align-items: center; justify-content: center;}
-  .partner-btn { display:flex; justify-content: center; align-items: center;}
 
   /* ═══════════════════════════════════════
      MAIN CONTENT
@@ -127,14 +92,14 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 82%;
+    width: 80%;
   }
 
   /* Progress bar */
   .progress-card {
     background: #fff;
     border-radius: 10px;
-    border: 1.5px solid #0085e0;
+    border: 1px solid #0085e0;
     overflow: hidden;
     /* box-shadow: 0 2px 8px rgba(0,100,200,.07);  */
   }
