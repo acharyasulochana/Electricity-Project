@@ -15,11 +15,12 @@ import { NightHeaters } from '../night-heaters/night-heaters';
 import { CarElectricity } from '../car-electricity/car-electricity';
 import { HeatingElectricity } from '../heating-electricity/heating-electricity';
 import { RouterModule } from '@angular/router';
+import { NeedSupport } from "../../layout/need-support/need-support";
 
 
 @Component({
   selector: 'app-home',
-  imports: [ MatIconModule, MatInputModule, CommonModule, Discount, RouterModule],
+  imports: [MatIconModule, MatInputModule, CommonModule, Discount, RouterModule, NeedSupport],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

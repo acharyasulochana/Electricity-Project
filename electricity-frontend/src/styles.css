@@ -11,6 +11,7 @@ body {
   font-family: 'Encode Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
+  background-color: #ffffff;
 }
 
 body, button, input, textarea, select,
@@ -61,6 +62,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   color: #ffffff;
   background-color: #00a651;
+  display: flex;
+  gap: 5px;
 }
 
 .feature-grid {
@@ -202,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .item-discount-top { margin-bottom: 1rem; padding-bottom: 0.5rem;}
 
-.item-discount-bottom { padding-left: 1rem;}
+.item-discount-bottom { padding-left: 1rem; display: flex; flex-direction: row; gap: 5px;}
 
 .item-price { font-size: 25px; font-weight: 500;}
 
@@ -221,6 +224,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;  /* controls the “i” size */
   border-radius: 50%;
   top: 0.4em;
+  font-size: 18px;
   left: -0.3em;
 
 }
@@ -418,11 +422,7 @@ button[mat-icon-button] {
   border-radius: 8px;
 }
 
-.btn-text {
-  display: flex;
-  align-items: center;
-  padding-bottom: 0.1rem;
-}
+
 
 .icon-btn:hover {
   background-color: #e68830ef;
@@ -442,63 +442,6 @@ button[mat-icon-button] {
 .icon-schloss, .icon-schloss-green { height: 13px; width:10px}
 .icon-green-tick, .icon-check {height: 15px; width: 15px;}
 
-
-
-/*   ---------------all navigation page layout --------------------------------- */
-
- .page-layout { display: flex; gap: 1.3rem; padding: 1.3rem; }
-
-  /* ── Sidebar ── */
-  .sidebar { display: flex; flex-direction: column; gap: 1.3rem; width: 19%; }
-
-  .card-header {
-    background: #0085e0;
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 7px 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  /*  ----------------------------------------------------- sidebar of navbar -------------------------------------------- */
-/* ── Cards ── */
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    border: 1px solid #0085e0;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,100,200,.07);
-  }
-
-  /* ── Card-header in style.css ── */
-.nav-icon-strom{width: 13px; height: 20px;}
-.card-body {padding: 12px 10px; margin-bottom: 4px;}
-
-  /* Price card */
-  .price-amount {
-    text-align: right;
-    font-size: 28px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
-  }
-
-  .price-sub, .price-save {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-top: 2px;
-  }
-
-.pro-monat {padding-right: 6px;}
-.price-save .hl {color: #00a651; font-weight: 700; padding-right: 6px;}
-
   .info-base {
     width: 11px;
     height: 11px;
@@ -517,31 +460,36 @@ button[mat-icon-button] {
 .info-circ {border: 1px solid #1d1c1c;color: #1d1c1c;display: flex; justify-content: center;}
 .info-border-blue {border: 1px solid #1565c0;color: #1565c0;display: flex; justify-content: center}
 
-  /* Tarif details */
-  .octopus-name { font-size: 10px; color: #e91e8c; font-weight: 700; }
-  .d-label { font-size: 14px; font-weight: 500; color: #1a1a1a;  }
-  .d-value { font-size: 14px; font-weight: 700; color: #1a1a1a; }
-  .d-row { margin-bottom: 9px; }
-  .d-row-inline { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 9px; }
 
-  /* Tarifübersicht */
-  .ov-label { font-size: 14px; font-weight: 500;  }
-  .ov-value { font-size: 14px; font-weight: 700; }
-  .ov-row { margin-bottom: 8px; }
-  .line-blue {display: flex; justify-content: space-between; align-items: flex-start; }
-  .link-blue { color: #3a9bd5; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center;  }
 
+/*   ---------------all navigation page layout --------------------------------- */
+
+ .page-layout { display: flex; gap: 1.3rem; padding: 1.3rem; }
+
+ .card {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #0085e0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,100,200,.07);
+  }
+
+  .card-header {
+    background: #0085e0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar { display: flex; flex-direction: column; gap: 1.3rem;}
 
 
   /*  -------------- Ansprechpartner ---- */
-.partner-photo-wrap img {border-radius: 8px; width: 130px;}
-.partner-photo-wrap { display: flex; justify-content: center; align-items: flex-end; width: 100%; padding-top: 12px; overflow: hidden;}
-.partner-photo-wrap img {border-radius: 8px;width: 130px;}
-
-  .partner-info { padding: 9px 10px 10px; text-align: center; }
-  .partner-name { font-weight: 700; font-size: 16px; margin-bottom: 0.5rem;}
-  .container-main-btn {flex: 1; display:flex; flex-direction: column; gap: 0.55rem; align-items: center; justify-content: center;}
-  .partner-btn { display:flex; justify-content: center; align-items: center;}
 
   .main-content {
     display: flex;
@@ -556,7 +504,6 @@ button[mat-icon-button] {
     border-radius: 8px;
     border: 1px solid #0085e0;
     overflow: hidden;
-    /* box-shadow: 0 2px 8px rgba(0,100,200,.07);  */
   }
   .progress-header {
     background: #0085e0;
@@ -573,11 +520,9 @@ button[mat-icon-button] {
     justify-content: space-between;
     position: relative;
   }
-.progress-steps::before { content: ''; position: absolute; top: 35%; left: 84px; right: 73px; height: 1px; background: #1a1a2e; transform: translateY(-50%); z-index: 0; }
+.progress-steps::before { content: ''; position: absolute; top: 35%; left: 78px; right: 73px; height: 1px; background: #1a1a2e; transform: translateY(-50%); z-index: 0; }
 
 .step { display: flex; flex-direction: column; align-items: center; gap: 5px; position: relative; z-index: 1;}
-  /* line between steps */
-
 
 /* remove line after last step */
 .step:last-child::after {display: none;}
@@ -603,8 +548,8 @@ button[mat-icon-button] {
   .form-group { display: flex; flex-direction: column; flex: 1; position: relative; }
   .form-group.shrink { flex: 0 0 auto; }
 
-.field-wrap { border: 1px solid #4a4949; border-radius: 8px; padding: 0px 36px 4px 12px; background: #fff; position: relative;}
-.field-wrap.readonly, .form-group.readonly, .text-field, .input-field.readonly { background-color: #afadad; border:none }
+.field-wrap { border: 1px solid #4a4949; border-radius: 8px; padding: 0px 12px 4px 12px; background: #fff; position: relative;}
+.field-wrap.readonly, .form-group.readonly, .text-field { background-color: #afadad; border:none }
 
 .field-wrap .field-label { font-size: 12px; font-weight: 500; display: block;}
 .field-wrap input { border: none; outline: none; font-size: 14px; font-weight: 500; width: 100%; padding: 0;}
@@ -629,7 +574,7 @@ button[mat-icon-button] {
   }
 
   /* Radio-style toggle */
-  .toggle-row { display: flex; gap: 10px; margin-bottom: 12px; width: 100%; }
+  .toggle-row { display: flex; gap: 10px; margin-bottom: 12px; width: 100%;}
   .toggle-box, .toggle-box-check { display: flex; position: relative; margin-bottom: 12px; align-items: stretch; border: 1.5px solid #4a4949; border-radius: 8px; flex-shrink: 0; overflow: hidden;}
   .toggle-opt {flex: 1; padding: 10px 14px; display: flex; align-items: center; justify-content: center; gap: 8px;
     cursor: pointer; font-size: 14px; background: #fff;}

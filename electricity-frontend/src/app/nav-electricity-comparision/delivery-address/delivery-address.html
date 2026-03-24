@@ -1,0 +1,208 @@
+<div class="page-layout">
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+    <app-contact-person></app-contact-person>
+    <app-need-support></app-need-support>
+  </div>
+
+  <!-- ══════════ MAIN CONTENT ══════════ -->
+  <div class="main-content">
+
+    <!-- Progress stepper -->
+    <div class="progress-card">
+      <div class="progress-header">Nur noch wenige Klicks zu Ihrem neuen Tarif</div>
+      <div class="progress-steps">
+        <div class="step">
+          <div class="step-circle">
+            <div class="inner-circle">1</div>
+          </div>
+          <div class="step-label">Account</div>
+        </div>
+        <div class="step active">
+          <div class="step-circle">
+            <div class="inner-circle">2</div>
+          </div>
+          <div class="step-label">Lieferadresse</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">
+            <div class="inner-circle">3</div>
+          </div>
+          <div class="step-label">Anschlussdaten</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">
+            <div class="inner-circle">4</div>
+          </div>
+          <div class="step-label">Zahlungsart</div>
+        </div>
+
+        <div class="step">
+          <div class="step-circle">
+            <div class="inner-circle">5</div>
+          </div>
+          <div class="step-label">Abschluss</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Lieferadresse section -->
+    <div class="section-panel">
+      <div class="section-header">
+        Lieferadresse
+        <div class="container-icon" style=" align-items: center;">
+          <span class="info-base info-green">i</span>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- Email -->
+        <div class="form-row" style="align-items:center;">
+          <div class="form-group">
+            <div class="field-wrap">
+              <span class="field-label">E-Mail-Adresse</span>
+              <input name="email" autocomplete="email" type="email" placeholder="manuel.markovic@gmx.net" value="">
+            </div>
+          </div>
+          <span class="info-base info-icon" style="flex-shrink:0;">i</span>
+        </div>
+
+        <!-- Title buttons -->
+        <div class="form-row container-salutation">
+          <button class="title-btn">Dr.</button>
+          <button class="title-btn">Prof.</button>
+          <button class="title-btn">Prof. Dr.</button>
+        </div>
+
+        <!-- Name row -->
+        <div class="form-row" style="align-items:center;">
+          <div class="form-group">
+            <div class="field-wrap">
+              <span class="field-label">Vorname</span>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="field-wrap">
+              <span class="field-label">Nachname</span>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+          <span class="info-base info-icon" style="flex-shrink:0;">i</span>
+        </div>
+
+        <!-- PLZ + Ort (readonly) -->
+        <div class="container-readonly">
+          <div class="form-row">
+            <div class="form-group" style="flex:0 0 160px;">
+              <div class="field-wrap readonly">
+                <span class="field-label">Ihre PLZ</span>
+                <input type="text" class="text-field" value="12345" readonly>
+                <span class="field-icon">
+                  <img src="assets/icons/Schloss.png" class="icon-schloss" alt="check">
+                </span>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="field-wrap readonly">
+                <span class="field-label">Ort</span>
+                <input type="text" class="text-field" value="Musterhausen" readonly>
+                <span class="field-icon"><img src="assets/icons/Schloss.png" class="icon-schloss" alt="check"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Straße + Hausnummer (readonly) -->
+          <div class="form-row">
+            <div class="form-group">
+              <div class="field-wrap readonly">
+                <span class="field-label">Ihre Straße</span>
+                <input type="text" class="text-field" value="Musterstraße" readonly>
+                <span class="field-icon"><img src="assets/icons/Schloss.png" class="icon-schloss" alt="check"></span>
+              </div>
+            </div>
+            <div class="form-group" style="flex:0 0 160px;">
+              <div class="field-wrap readonly">
+                <span class="field-label">Hausnummer</span>
+                <input type="text" class="text-field" value="10" readonly>
+                <span class="field-icon"><img src="assets/icons/Schloss.png" class="icon-schloss" alt="check"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="help-text">Die Adressfelder mit grauem Hintergrund sind schreibgeschützt. Änderungen sind jederzeit
+          über eine neue Suche möglich.</p>
+
+        <!-- Telefon -->
+        <div class="form-row" style="align-items:center;">
+          <div class="form-group">
+            <div class="field-wrap">
+              <span class="field-label">Handynummer</span>
+              <input type="phone" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="field-wrap">
+              <span class="field-label">Telefonnummer</span>
+              <input type="tel" placeholder="">
+            </div>
+          </div>
+          <span class="info-base info-circ" style="flex-shrink:0;">i</span>
+        </div>
+
+        <!-- Geburtsdatum -->
+        <div class="form-row" style="align-items:center;">
+          <div class="form-group">
+            <div class="field-wrap date">
+              <div style="width: 100%;">
+                <span class="field-label">Gewünschter Liefertermin</span>
+                <div style="display: flex; flex-direction: row;">
+                  <input matInput [matDatepicker]="picker" placeholder="TT.MM.JJJJ" (click)="picker.open()">
+                </div>
+              </div>
+              <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon>calendar_month</mat-icon>
+              </mat-datepicker-toggle>
+            </div>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+          <span class="info-base info-circ" style="flex-shrink:0;">i</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Abweichende Rechnungsadresse -->
+    <div class="section-panel">
+      <div class="section-header">
+        Abweichende Rechnungsadresse
+        <div>
+          <span class="info-base info-green">i</span></div>
+      </div>
+      <div class="section-body">
+        <div class="toggle-row">
+          <div class="toggle-box" style="width: 98.5%;">
+            <div class="toggle-opt" onclick="selectToggle(this, 'rech')">
+              <label class="cb-row"><input type="checkbox" /></label>
+              Ja
+            </div>
+            <div class="toggle-opt selected" onclick="selectToggle(this, 'rech')">
+              <label class="cb-row"><input type="checkbox" checked /> </label>
+              Nein
+            </div>
+          </div>
+          <div style="display: flex; margin-bottom: 20px;">
+            <span class="info-base info-icon">i</span>
+          </div>
+        </div>
+        <button class="btn-primary" (click)="openPage()">Lieferadresse übernehmen</button>
+      </div>
+    </div>
+
+
+  </div><!-- /main-content -->
+</div>

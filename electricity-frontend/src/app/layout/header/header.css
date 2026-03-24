@@ -78,7 +78,7 @@
 }
 
 /*  PHONE SECTION  */
-.container-contact {
+.container-advice {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -134,14 +134,12 @@
   width: 20px;
   height: 20px;
   background-color: #ff6b00;
-
 }
 
 .email-icon{
   width: 20px;
   height: 15px;
   background-color: #ff6b00ed;
-
 }
 
 

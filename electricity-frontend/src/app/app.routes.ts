@@ -8,13 +8,15 @@ import { CarElectricity } from './pages/car-electricity/car-electricity';
 import { ElectricityComparision } from './navigation-pages/electricity-comparision/electricity-comparision';
 import { GasComparision } from './navigation-pages/gas-comparision/gas-comparision';
 import { CommercialElectricity } from './navigation-pages/commercial-electricity/commercial-electricity';
-import { DeliveryAddress } from './navigation-pages/delivery-address/delivery-address';
-import { SelectProvider } from './navigation-pages/select-provider/select-provider';
-import { PaymentMethod } from './navigation-pages/payment-method/payment-method';
-import { ConnectionData } from './navigation-pages/connection-data/connection-data';
-import { CheckoutPage } from './navigation-pages/checkout-page/checkout-page';
-import { Account } from './navigation-pages/account/account';
-import { LoginPage } from './navigation-pages/login-page/login-page';
+
+import { DeliveryAddress } from './nav-electricity-comparision/delivery-address/delivery-address';
+import { SelectProvider } from './nav-electricity-comparision/select-provider/select-provider';
+import { PaymentMethod } from './nav-electricity-comparision/payment-method/payment-method';
+import { ConnectionData } from './nav-electricity-comparision/connection-data/connection-data';
+import { CheckoutPage } from './nav-electricity-comparision/checkout-page/checkout-page';
+import { Account } from './nav-electricity-comparision/account/account';
+import { LoginPage } from './nav-electricity-comparision/login-page/login-page';
+import { Sidebar } from './layout/sidebar/sidebar';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

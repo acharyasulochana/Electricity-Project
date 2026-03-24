@@ -35,10 +35,6 @@
   padding: 0.4rem 0rem 0.93rem 0rem;
 }
 
-.feature-header-no {
-  display: flex;
-}
-
 .container-message {
   display: flex;
   flex-direction: column;
@@ -62,19 +58,6 @@
   width: 3.5rem;
 }
 
-
-.info-icon-home {
-  vertical-align: super;
-  position: relative;
-  margin-left: 1px;
-  cursor: pointer;
-  color:  #ffffff;
-  width: 1em;
-  height: 1em;
-  font-size: 0.7em;
-  font-weight: 500;
-  border-radius: 50%;
-}
 
 .container-per-year {
   display: flex;

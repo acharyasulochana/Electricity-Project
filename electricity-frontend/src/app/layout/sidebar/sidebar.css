@@ -1,0 +1,41 @@
+  /* ── Card-header in style.css ── */
+.nav-icon-strom{width: 13px; height: 20px;}
+.card-body {padding: 12px 10px; margin-bottom: 4px;}
+
+  /* Price card */
+  .price-amount {
+    text-align: right;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-sub, .price-save {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-top: 2px;
+  }
+
+.pro-monat {padding-right: 6px;}
+.price-save .hl {color: #00a651; font-weight: 700; padding-right: 6px;}
+
+
+  /* Tarif details */
+  .octopus-name { font-size: 10px; color: #e91e8c; font-weight: 700; }
+  .d-label { font-size: 14px; font-weight: 500; color: #1a1a1a;  }
+  .d-value { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+  .d-row { margin-bottom: 9px; }
+  .d-row-inline { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 9px; }
+
+  /* Tarifübersicht */
+  .ov-label { font-size: 14px; font-weight: 500;  }
+  .ov-value { font-size: 14px; font-weight: 700; }
+  .ov-row { margin-bottom: 8px; }
+  .line-blue {display: flex; justify-content: space-between; align-items: flex-start; }
+  .link-blue { color: #3a9bd5; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center;  }

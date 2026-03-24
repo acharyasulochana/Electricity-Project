@@ -19,6 +19,7 @@
 
 .expert{
   display: flex;
+  gap: 5px;
   padding-top: 0.1rem;
 }
 
