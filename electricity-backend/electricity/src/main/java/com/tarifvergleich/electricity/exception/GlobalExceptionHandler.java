@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -35,8 +36,14 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(body, ex.getCode());
 	}
 	
-//	@ExceptionHandler(Exception.class)
-//	public ResponseEntity<?> handleAllExceptions(Exception ex){
-//		
-//	}
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<?> handleAllExceptions(Exception ex){
+		Map<String, Object> body = new LinkedHashMap<String, Object>();
+		
+		body.put("res", false);
+		body.put("errMessage", "Etwas ist schiefgelaufen");
+		
+		return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+		
+	}
 }

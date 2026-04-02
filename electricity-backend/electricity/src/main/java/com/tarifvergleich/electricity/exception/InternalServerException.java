@@ -15,7 +15,7 @@ public class InternalServerException extends RuntimeException {
 
 	@Override
 	public String toString() {
-		return "InternalServerException : " + message;
+		return message;
 	}
 
 	public String getMessage() {
