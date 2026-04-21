@@ -37,7 +37,7 @@
     "angularx-flatpickr": "^8.1.0",
     "express": "^5.1.0",
     "flatpickr": "^4.6.13",
-    "ngx-countdown": "^21.0.0",
+    "ngx-countdown": "^13.0.0",
     "rxjs": "~7.8.0",
     "signature_pad": "^5.1.3",
     "smart-webcomponents-angular": "^25.5.6",
