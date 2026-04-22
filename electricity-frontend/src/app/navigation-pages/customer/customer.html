@@ -1268,7 +1268,7 @@
               </button>
             </div> -->
 
-            <div class="form-actions">
+             <div class="form-actions">
               <button
                 type="button"
                 class="btn-primary"
@@ -1352,7 +1352,6 @@
               [style.color]="isResendDisabled ? '#999' : '#0085e0'"
               [style.pointerEvents]="isResendDisabled ? 'none' : 'auto'"
               (click)="resendOtp()"
-              style="cursor: pointer"
             >
               <span *ngIf="isResendDisabled">
                 Code erneut senden&nbsp;
@@ -1394,7 +1393,7 @@
                 (click)="verifyOtp()"
               >
                 <span *ngIf="isLoading; else normal">
-                  <span class="spinner"></span> Prüfen...
+                  <span class="spinner"></span> Senden...
                 </span>
 
                 <ng-template #normal>

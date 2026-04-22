@@ -5,7 +5,12 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from 'express';
 import { CommonModule } from '@angular/common';
 import SignaturePad from 'signature_pad';
-import { CountdownConfig, CountdownEvent, CountdownComponent } from 'ngx-countdown';
+import {
+  CountdownConfig,
+  CountdownEvent,
+  CountdownComponent,
+  CountdownModule,
+} from 'ngx-countdown';
 import { environment } from '../../environments/environment';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -47,7 +52,7 @@ export class Customer {
   ];
 
   /* ── Tab control ──────────────────────────────────────────────── */
-  activeTab: number = 4;
+  activeTab: number = 7;
   serviceTab: number = 1;
   /* ── Step control ──────────────────────────────────────────────── */
   currentStep: number = 1;
@@ -622,7 +627,7 @@ export class Customer {
       .post<{
         res: boolean;
         message: string;
-      }>(`${API_BASE}/auth/resend-change-otp`, { id: this.authService.getUserId() })
+      }>(`${API_BASE}/auth/resend-otp`, { id: this.authService.getUserId() })
       .subscribe({
         next: (res) => {
           this.resendSuccess = true;
@@ -632,7 +637,7 @@ export class Customer {
             if (el) el.value = '';
           }
           this.otpValue = '';
-          this.cdr.detectChanges();
+
           setTimeout(() => (this.resendSuccess = false), 4000);
         },
         error: () => {
