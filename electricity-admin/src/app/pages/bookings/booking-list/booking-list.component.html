@@ -33,7 +33,7 @@
             <th class="px-4 py-3">Kontakt</th>
             <th class="px-4 py-3">Bestellt am</th>
             <th class="px-4 py-3">Lieferdatum</th>
-            <th class="px-4 py-3 rounded-tr-lg text-right">Details</th>
+            <th class="px-4 py-3 rounded-tr-lg text-right">Aktionen</th>
           </tr>
         </thead>
         <tbody class="divide-y dark:divide-gray-700">
@@ -98,18 +98,9 @@
               {{ formatDate(booking.deliveryDate) }}
             </td>
 
-            <!-- Chevron -->
-            <!-- <td class="px-4 py-4 text-right">
-              <div class="flex items-center justify-end gap-1 text-brand-500 font-medium">
-                <span class="text-xs">Details</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200"
-                  [class.rotate-90]="isSelected(booking)" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </td> -->
+            <!-- Actions -->
             <td class="px-4 py-4 text-right">
-              <div class="flex items-center justify-end gap-2">
+              <div class="flex items-center justify-end gap-2 flex-wrap">
 
                 <!-- Edit button -->
                 <button (click)="editBooking(booking); $event.stopPropagation()" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-lg
@@ -124,7 +115,20 @@
                   Bearbeiten
                 </button>
 
-                <!-- Details chevron (existing behaviour) -->
+                <!-- Change Provider button -->
+                <button (click)="changeProvider(booking); $event.stopPropagation()" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-lg
+                         bg-amber-50 text-amber-700 hover:bg-amber-100
+                         dark:bg-amber-900/20 dark:text-amber-400 dark:hover:bg-amber-900/40
+                         transition cursor-pointer border border-amber-200 dark:border-amber-700/40">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                  </svg>
+                  Anbieter wechseln
+                </button>
+
+                <!-- Details chevron -->
                 <div class="flex items-center gap-1 text-brand-500 font-medium cursor-pointer">
                   <span class="text-xs">Details</span>
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200"
@@ -174,148 +178,114 @@
       </div>
     </div>
     }
-
   </div>
   <!-- ───────────────────────── END MAIN PANEL ───────────────────────── -->
-
 
   <!-- ───────────────────────── SIDEBAR ───────────────────────── -->
   @if (isSidebarOpen && selectedBooking) {
   <aside
-    class="w-80 shrink-0 border-l border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 flex flex-col overflow-hidden"
-    style="animation: slideIn 0.2s ease">
+    class="w-80 shrink-0 border-l border-gray-200 dark:border-gray-700 overflow-y-auto bg-white dark:bg-gray-900 transition-all duration-300">
 
-    <!-- Sidebar header -->
-    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-gray-700">
-      <div>
-        <span class="text-sm font-semibold text-gray-800 dark:text-white">Buchungsdetails</span>
-        <span class="ml-2 px-2 py-0.5 rounded-full text-xs font-medium"
-          [class.bg-green-100]="selectedBooking.orderPlaced" [class.text-green-700]="selectedBooking.orderPlaced"
-          [class.bg-yellow-100]="!selectedBooking.orderPlaced" [class.text-yellow-700]="!selectedBooking.orderPlaced">
-          {{ selectedBooking.orderPlaced ? 'Bestätigt' : 'Offen' }}
-        </span>
+    <!-- Sidebar Header -->
+    <div
+      class="sticky top-0 z-10 flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+      <div class="flex items-center gap-3">
+        <div
+          class="h-8 w-8 rounded-full bg-brand-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
+          {{ initials(selectedBooking) }}
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-gray-900 dark:text-white leading-tight">
+            {{ fullName(selectedBooking) || 'Kein Name' }}
+          </p>
+          <p class="text-xs text-gray-400 leading-tight">#{{ selectedBooking.uniqueDeliveryId }}</p>
+        </div>
       </div>
       <button (click)="closeSidebar()"
-        class="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-        aria-label="Schließen">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
 
-    <!-- Sidebar body -->
-    <div class="flex-1 overflow-y-auto p-5 space-y-6">
+    <!-- Sidebar Content -->
+    <div class="p-4 flex flex-col gap-6">
 
-      <!-- Customer avatar + name -->
-      <div class="flex items-center gap-3">
-        <div
-          class="h-10 w-10 rounded-full bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center text-sm font-semibold text-violet-700 dark:text-violet-300 shrink-0">
-          {{ initials(selectedBooking) }}
-        </div>
-        <div class="min-w-0">
-          <p class="font-semibold text-gray-900 dark:text-white truncate">{{ fullName(selectedBooking) || 'Kein Name' }}
-          </p>
-          <p class="text-xs text-gray-500 dark:text-gray-400 truncate">{{ selectedBooking.email || '—' }}</p>
-        </div>
-      </div>
-
-      <!-- ── Auftrag ── -->
+      <!-- ── Kontakt ── -->
       <div>
-        <p class="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">Auftrag</p>
+        <p class="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">Kontakt</p>
         <div class="rounded-xl bg-gray-50 dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
           <div class="flex justify-between px-4 py-2.5">
-            <span class="text-xs text-gray-500 dark:text-gray-400">Lieferung-ID</span>
-            <span class="text-xs font-mono font-medium text-gray-800 dark:text-gray-200">#{{ selectedBooking.deliveryId
-              }}</span>
+            <span class="text-xs text-gray-500 dark:text-gray-400">E-Mail</span>
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200 truncate max-w-[150px]">
+              {{ selectedBooking.email || '—' }}
+            </span>
           </div>
           <div class="flex justify-between px-4 py-2.5">
             <span class="text-xs text-gray-500 dark:text-gray-400">Mobil</span>
-            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">{{ selectedBooking.mobile || '—'
-              }}</span>
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">
+              {{ selectedBooking.mobile || '—' }}
+            </span>
           </div>
-          @if (selectedBooking.telephone) {
           <div class="flex justify-between px-4 py-2.5">
             <span class="text-xs text-gray-500 dark:text-gray-400">Telefon</span>
-            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">{{ selectedBooking.telephone }}</span>
-          </div>
-          }
-          <div class="flex justify-between px-4 py-2.5">
-            <span class="text-xs text-gray-500 dark:text-gray-400">Bestellt am</span>
-            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">{{
-              formatDateTime(selectedBooking.orderPlacedOn) }}</span>
-          </div>
-          <div class="flex justify-between px-4 py-2.5">
-            <span class="text-xs text-gray-500 dark:text-gray-400">Lieferdatum</span>
-            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">{{
-              formatDate(selectedBooking.deliveryDate) }}</span>
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">
+              {{ selectedBooking.telephone || '—' }}
+            </span>
           </div>
         </div>
       </div>
 
-      <!-- ── Kundenadresse ── -->
+      <!-- ── Adressen ── -->
       <div>
-        <p class="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">Kundenadresse</p>
-        <div class="rounded-xl bg-gray-50 dark:bg-gray-800 px-4 py-3">
-          @if (selectedBooking.customerAddress) {
-          <p class="text-xs font-medium text-gray-800 dark:text-gray-200 leading-relaxed">
-            {{ selectedBooking.customerAddress.street }} {{ selectedBooking.customerAddress.houseNumber }}<br>
-            {{ selectedBooking.customerAddress.zip }} {{ selectedBooking.customerAddress.city }}
-          </p>
-          } @else {
-          <p class="text-xs text-gray-400 italic">Keine Adresse hinterlegt</p>
+        <p class="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">Adressen</p>
+        <div class="rounded-xl bg-gray-50 dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+          <div class="flex flex-col px-4 py-2.5 gap-0.5">
+            <span class="text-xs text-gray-500 dark:text-gray-400">Lieferadresse</span>
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-right">
+              {{ formatAddress(selectedBooking.customerAddress) }}
+            </span>
+          </div>
+          @if (selectedBooking.billingAddress?.isDifferent) {
+          <div class="flex flex-col px-4 py-2.5 gap-0.5">
+            <span class="text-xs text-gray-500 dark:text-gray-400">Rechnungsadresse</span>
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-right">
+              {{ formatAddress(selectedBooking.billingAddress) }}
+            </span>
+          </div>
           }
         </div>
       </div>
-
-      <!-- ── Rechnungsadresse (only if different) ── -->
-      @if (selectedBooking.billingAddress?.isDifferent) {
-      <div>
-        <p class="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">Rechnungsadresse
-        </p>
-        <div class="rounded-xl bg-gray-50 dark:bg-gray-800 px-4 py-3">
-          <p class="text-xs font-medium text-gray-800 dark:text-gray-200 leading-relaxed">
-            {{ selectedBooking.billingAddress!.street }} {{ selectedBooking.billingAddress!.houseNumber }}<br>
-            {{ selectedBooking.billingAddress!.zip }} {{ selectedBooking.billingAddress!.city }}
-          </p>
-        </div>
-      </div>
-      }
 
       <!-- ── Kontakttermin ── -->
+      @if (selectedBooking.contactSchedule) {
       <div>
         <p class="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">Kontakttermin</p>
-        @if (selectedBooking.contactSchedule) {
         <div class="rounded-xl bg-gray-50 dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-          <div class="flex justify-between items-center px-4 py-2.5">
+          <div class="flex justify-between px-4 py-2.5">
             <span class="text-xs text-gray-500 dark:text-gray-400">Tag</span>
-            <span
-              class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-violet-100 text-violet-800 dark:bg-violet-900/40 dark:text-violet-300">
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">
               {{ dayLabel(selectedBooking.contactSchedule.dayOfWeek) }}
             </span>
           </div>
-          <div class="flex justify-between items-center px-4 py-2.5">
-            <span class="text-xs text-gray-500 dark:text-gray-400">Zeitfenster</span>
-            <span
-              class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-300">
+          <div class="flex justify-between px-4 py-2.5">
+            <span class="text-xs text-gray-500 dark:text-gray-400">Uhrzeit</span>
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">
               {{ timeLabel(selectedBooking.contactSchedule.timeSlot) }}
             </span>
           </div>
           @if (selectedBooking.contactSchedule.description) {
-          <div class="flex justify-between px-4 py-2.5">
-            <span class="text-xs text-gray-500 dark:text-gray-400">Notiz</span>
-            <span class="text-xs font-medium text-gray-800 dark:text-gray-200">
+          <div class="flex flex-col px-4 py-2.5 gap-0.5">
+            <span class="text-xs text-gray-500 dark:text-gray-400">Hinweis</span>
+            <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-right">
               {{ selectedBooking.contactSchedule.description }}
             </span>
           </div>
           }
         </div>
-        } @else {
-        <div class="rounded-xl bg-gray-50 dark:bg-gray-800 px-4 py-3">
-          <p class="text-xs text-gray-400 italic">Kein Kontakttermin vereinbart</p>
-        </div>
-        }
       </div>
+      }
 
       <!-- ── Anschluss ── -->
       <div>
@@ -365,7 +335,6 @@
         <p class="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">Anbieter</p>
         @if (selectedBooking.provider) {
         <div class="rounded-xl bg-gray-50 dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-          <!-- Provider logo + name -->
           <div class="flex items-center gap-3 px-4 py-3">
             @if (selectedBooking.provider.providerSVG) {
             <img [src]="selectedBooking.provider.providerSVG" alt="Anbieter Logo" class="h-7 w-auto object-contain"
@@ -481,17 +450,3 @@
   <!-- ───────────────────────── END SIDEBAR ───────────────────────── -->
 
 </div>
-
-<style>
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(1rem);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-</style>
