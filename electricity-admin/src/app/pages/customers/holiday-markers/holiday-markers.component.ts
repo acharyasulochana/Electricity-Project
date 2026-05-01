@@ -22,9 +22,14 @@ interface Holiday {
 })
 export class HolidayMarkerComponent implements OnInit {
   /* ── Calendar state ───────────────────────────── */
-  today = new Date();
+  // today = new Date();
+  // viewYear = this.today.getFullYear();
+  // viewMonth = this.today.getMonth();
+
+  today = this.getGermanDate();
   viewYear = this.today.getFullYear();
   viewMonth = this.today.getMonth();
+
   weeks: (Date | null)[][] = [];
 
   readonly MONTH_NAMES = [
@@ -76,7 +81,8 @@ export class HolidayMarkerComponent implements OnInit {
 
   /* ── Calendar builder ─────────────────────────── */
   buildCalendar() {
-    const firstDay = new Date(this.viewYear, this.viewMonth, 1).getDay();
+    const firstDayDate = new Date(this.viewYear, this.viewMonth, 1);
+    const firstDay = firstDayDate.getDay();
     const daysInMonth = new Date(
       this.viewYear,
       this.viewMonth + 1,
@@ -119,12 +125,12 @@ export class HolidayMarkerComponent implements OnInit {
     this.cancelRange();
   }
 
-  /* ── ISO helpers ──────────────────────────────── */
   toIso(date: Date): string {
+    // Use the date object's internal values which we've aligned to Berlin
     const y = date.getFullYear();
     const m = String(date.getMonth() + 1).padStart(2, "0");
     const d = String(date.getDate()).padStart(2, "0");
-    return `${y}-${m}-${d}`;
+    return `${y}-${m}-${d}`; //
   }
 
   fromIso(iso: string): Date {
@@ -291,7 +297,7 @@ export class HolidayMarkerComponent implements OnInit {
       rangeId: null,
     };
     if (this.editingRangeId) payload.rangeId = this.editingRangeId;
-    if (this.editingSingleId) payload.id = this.editingSingleId;
+    if (this.editingSingleId) payload.holidayId = this.editingSingleId;
 
     this.api.post("admin/add-holidays", payload).subscribe({
       next: (res) => {
@@ -345,7 +351,7 @@ export class HolidayMarkerComponent implements OnInit {
     this.isSaving = true;
     const payload: any = { adminId: this.authService.getUserId() };
     if (this.editingRangeId) payload.rangeId = this.editingRangeId;
-    if (this.editingSingleId) payload.id = this.editingSingleId;
+    if (this.editingSingleId) payload.holidayId = this.editingSingleId;
 
     this.api.post("admin/delete-holiday", payload).subscribe({
       next: (res) => {
@@ -371,6 +377,14 @@ export class HolidayMarkerComponent implements OnInit {
         this.errorMessage = "Something went wrong";
       },
     });
+  }
+
+  // Add this helper to your class
+  getGermanDate(date: Date = new Date()): Date {
+    const berlinString = date.toLocaleString("en-US", {
+      timeZone: "Europe/Berlin",
+    });
+    return new Date(berlinString);
   }
 
   /* ── Styling helpers ──────────────────────────── */
@@ -459,12 +473,14 @@ export class HolidayMarkerComponent implements OnInit {
 
   timestampToIso(ts: number): string {
     const d = new Date(ts * 1000);
-
-    const y = d.getUTCFullYear();
-    const m = String(d.getUTCMonth() + 1).padStart(2, "0");
-    const day = String(d.getUTCDate()).padStart(2, "0");
-
-    return `${y}-${m}-${day}`;
+    const formatter = new Intl.DateTimeFormat("en-CA", {
+      // yyyy-mm-dd format
+      timeZone: "Europe/Berlin",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formatter.format(d); // Returns "YYYY-MM-DD" based on Berlin time[cite: 2]
   }
 
   mapType(type: string): Holiday["type"] {

@@ -19,6 +19,7 @@ import { CustomerServiceFormComponent } from "./pages/customer-query/add-query-c
 import { QueryCategoriesComponent } from "./pages/customer-query/query-categories/query-categories.component";
 import { CustomerQueriesComponent } from "./pages/customer-query/customer-queries/customer-queries.component";
 import { HolidayMarkerComponent } from "./pages/customers/holiday-markers/holiday-markers.component";
+import { ChangeBookingProviderComponent } from "./pages/bookings/change-booking-provider/change-booking-provider.component";
 
 export const routes: Routes = [
   {
@@ -132,7 +133,12 @@ export const routes: Routes = [
         path: "customers/holiday-markers",
         component: HolidayMarkerComponent,
         title: "Holiday Markers",
-      }
+      },
+      {
+        path: "bookings/:id/change-provider",
+        component: ChangeBookingProviderComponent,
+        title: "Anbieter wechseln",
+      },
     ],
   },
   {

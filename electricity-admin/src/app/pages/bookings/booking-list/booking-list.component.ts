@@ -117,9 +117,8 @@ export class BookingListComponent implements OnInit {
   constructor(
     private api: ApiService,
     private authService: AuthService,
-    private router: Router
-
-  ) { }
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.fetchBookings();
@@ -127,6 +126,13 @@ export class BookingListComponent implements OnInit {
 
   editBooking(booking: ApiBooking): void {
     this.router.navigate(["bookings/change", booking.deliveryId, "edit"], {
+      state: { booking },
+    });
+  }
+
+  /** Navigate to the Change Provider page, passing the full booking via router state */
+  changeProvider(booking: ApiBooking): void {
+    this.router.navigate(["bookings", booking.deliveryId, "change-provider"], {
       state: { booking },
     });
   }
