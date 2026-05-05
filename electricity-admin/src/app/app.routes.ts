@@ -20,6 +20,7 @@ import { QueryCategoriesComponent } from "./pages/customer-query/query-categorie
 import { CustomerQueriesComponent } from "./pages/customer-query/customer-queries/customer-queries.component";
 import { HolidayMarkerComponent } from "./pages/customers/holiday-markers/holiday-markers.component";
 import { ChangeBookingProviderComponent } from "./pages/bookings/change-booking-provider/change-booking-provider.component";
+import { CreateCustomerComponent } from "./pages/customers/create-customer/create-customer.component";
 
 export const routes: Routes = [
   {
@@ -139,6 +140,11 @@ export const routes: Routes = [
         component: ChangeBookingProviderComponent,
         title: "Anbieter wechseln",
       },
+      {
+        path: "customers/new",
+        component: CreateCustomerComponent,
+        title: "Neuen Kunden anlegen",
+      }
     ],
   },
   {

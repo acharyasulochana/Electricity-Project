@@ -59,8 +59,8 @@ export class SidebarMenuCreateComponent implements OnInit {
           // Use logical OR to catch different naming conventions from the API
           this.title = res.data.title || res.data.heading || "";
           this.savings = res.data.saving || "";
-          this.popupContent = res.data.savingDetail || "";
-
+          this.popupContent =
+            res.data.savingPriceDetail || res.data.savingDetail || "";
           if (res.data.contentUrl) {
             this.imagePreview = environment.imageBaseUrl + res.data.contentUrl;
           }

@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { ApiService } from "../../../shared/services/api.service";
 import { AuthService } from "../../../shared/services/auth.service";
 import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 export interface PasswordHistory {
   email: string;
@@ -74,7 +75,7 @@ export type AdminCustomer = {
 @Component({
   selector: "app-customer-list",
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: "./customer-list.component.html",
   styleUrl: "./customer-list.component.css",
 })
