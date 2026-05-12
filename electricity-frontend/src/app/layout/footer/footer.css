@@ -9,7 +9,9 @@
   background-color: #003366;
   color: #ffffff;
 }
-
+.footer-link {
+  cursor: pointer;
+}
 .footer-text {
   text-align: center;
   font-size: 12px;
