@@ -134,6 +134,19 @@ export class AppSidebarComponent implements OnInit, OnDestroy {
       </svg>`,
       subItems: [{ name: "Callback Requests", path: "/customer-callback" }],
     },
+    {
+      name: "Email Management",
+      icon: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+        <path 
+          d="M4 4H20V20H4V4Z" 
+          stroke="currentColor" 
+          stroke-width="2"
+        />
+      </svg>`,
+      subItems: [{name: "Email Requests", path: "/email-requests"},
+                {name: "Email Category", path: "/email-category"}
+      ],
+    },
   ];
 
   openSubmenu: string | null = null;
