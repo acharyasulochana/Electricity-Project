@@ -772,6 +772,7 @@ export class Customer {
     const provider = item.provider || {};
     const connection = item.connection || {};
     const address = item.customerAddress || {};
+    const order = item.order || {};
 
     return {
       logo: provider.providerSVG || 'assets/icons/default.png',
@@ -791,14 +792,14 @@ export class Customer {
       notificationEnabled: item.notificationEnabled ?? true,
       contractNumber: item.uniqueDeliveryId || 'N/A',
       customerNumber: item.mobile || 'N/A',
-      duration: this.getDuration(provider),
-      endOfDuration: this.getEndOfDuration(item.orderPlacedOn, this.getDurationMonths(provider)),
+      duration: this.getDuration(order?.operationPeriod),
+      endOfDuration: this.getExpiryDate(order?.expiryOn),
       startDate: this.formatDateReminder(item.orderPlacedOn),
       renewal: this.getRenewalDate(item),
       price: this.formatWorkPrice(provider),
       basePrice: this.formatBasePrice(provider),
       monthly: this.formatMonthly(provider),
-      cancelDate: this.getCancelDate(item.expiryOn),
+      cancelDate: this.getCancelDate(order?.lastDateOfCancellation),
       showActions: this.shouldShowContractActions(
         item.orderPlacedOn,
         this.getDurationMonths(provider),
@@ -833,6 +834,14 @@ export class Customer {
 
   getDurationMonths(provider: any): number {
     return Number(provider?.optTerm || 0);
+  }
+
+  getExpiryDate(timestamp: number): string {
+    if (!timestamp) return 'N/A';
+
+    const date = new Date(timestamp * 1000);
+
+    return date.toLocaleDateString('de-DE');
   }
 
   getEndOfDuration(startTimestamp: number, months: number): string {
@@ -897,11 +906,13 @@ export class Customer {
   // ===============================
   //  DURATION (not available → fallback)
   // ===============================
-  getDuration(provider: any): string {
-    if (provider?.optTerm) {
-      return provider.optTerm + ' Monate';
-    }
-    return 'N/A';
+  getDuration(operationPeriod: number | null): string {
+    if (!operationPeriod) return 'N/A';
+
+    // convert seconds -> months
+    const months = Math.floor(operationPeriod / (60 * 60 * 24 * 30));
+
+    return `${months} Monate`;
   }
 
   // ===============================
@@ -1520,15 +1531,23 @@ export class Customer {
   clear() {
     this.signaturePad.clear();
   }
-  // ngAfterViewInit() {
-  //   this.initSignature();
-  // }
+  
+  attorneyMailSend() {
+    const customerId = this.authService.getUserId() || 0;
+    const payload = { id: customerId, adminId: 1 };
 
-  // ngAfterViewChecked() {
-  //   if (this.activeTab === 5 && this.currentStep === 2 && !this.signaturePad) {
-  //     this.initSignature();
-  //   }
-  // }
+    this.http.post<any>(`${API_BASE}/customer/send-attorny-mail`, payload).subscribe({
+      next: ({ res }) => {
+        if (res) {
+          this.nextStep(2);
+          this.cdr.detectChanges();
+        }
+      },
+      error: (err) => {
+        console.error('Check Attorney API Error:', err);
+      },
+    });
+  }
 
   checkAttorneyStatus() {
     const customerId = this.authService.getUserId() || 0;

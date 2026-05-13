@@ -23,7 +23,9 @@
 .footer > div:hover {
   color: #ffe166;
 }
-
+.footer-link {
+  cursor: pointer;
+}
 .footer-text {
   width: min(100%, 1080px);
   margin: 0 auto;
