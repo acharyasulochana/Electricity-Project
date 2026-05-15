@@ -2,10 +2,10 @@ package com.tarifvergleich.electricity.service.admin;
 
 import com.tarifvergleich.electricity.model.AdminEmailAttachment;
 import com.tarifvergleich.electricity.repository.AdminEmailAttachmentRepository;
+import com.tarifvergleich.electricity.util.Helper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.Instant;
 
 @Service
 public class AdminEmailAttachmentService {
@@ -15,7 +15,7 @@ public class AdminEmailAttachmentService {
 
     public AdminEmailAttachment saveAttachment(AdminEmailAttachment attachment) {
 
-        attachment.setCreatedDate(Instant.now());
+        attachment.setCreatedDate(Helper.getCurrentTimeBerlin());
 
         return repository.save(attachment);
     }

@@ -1,7 +1,10 @@
 package com.tarifvergleich.electricity.model;
 
 import jakarta.persistence.*;
-import java.time.Instant;
+
+import java.math.BigInteger;
+
+import com.tarifvergleich.electricity.util.Helper;
 
 @Entity
 @Table(name = "email_management")
@@ -24,7 +27,7 @@ public class AdminEmailManagement {
     private String createdBy;
 
     @Column(name = "created_date")
-    private Instant createdDate;
+    private BigInteger createdDate;
 
     @ManyToOne
     @JoinColumn(name = "cate_id")
@@ -74,12 +77,17 @@ public class AdminEmailManagement {
 		this.createdBy = createdBy;
 	}
 	
-	public Instant getCreatedDate() {
+	public BigInteger getCreatedDate() {
 		return createdDate;
 	}
 	
-	public void setCreatedDate(Instant createdDate) {
+	public void setCreatedDate(BigInteger createdDate) {
 		this.createdDate = createdDate;
+	}
+	
+	@PrePersist
+	protected void onCreate() {
+		createdDate = Helper.getCurrentTimeBerlin();
 	}
 
 }
